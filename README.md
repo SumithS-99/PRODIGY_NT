@@ -1,4 +1,4 @@
-# PRODIGY_NT
+# PRODIGY_NT4
 # Simple Keylogger
 A basic keylogger program that records and logs keystrokes, saving them to a file. Developed as part of my internship at Prodigy InfoTech.
 
