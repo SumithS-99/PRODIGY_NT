@@ -1,45 +1,24 @@
 # PRODIGY_NT
-def encrypt(text, shift):
-    result = ""
-    
-    # Loop through each character in the input text
-    for char in text:
-        # Encrypt uppercase letters
-        if char.isupper():
-            result += chr((ord(char) + shift - 65) % 26 + 65)
-        # Encrypt lowercase letters
-        elif char.islower():
-            result += chr((ord(char) + shift - 97) % 26 + 97)
-        else:
-            result += char  # Non-alphabet characters are unchanged
-    
-    return result
+# Simple Keylogger
+A basic keylogger program that records and logs keystrokes, saving them to a file. Developed as part of my internship at Prodigy InfoTech.
 
-def decrypt(text, shift):
-    result = ""
-    
-    # Loop through each character in the input text
-    for char in text:
-        # Decrypt uppercase letters
-        if char.isupper():
-            result += chr((ord(char) - shift - 65) % 26 + 65)
-        # Decrypt lowercase letters
-        elif char.islower():
-            result += chr((ord(char) - shift - 97) % 26 + 97)
-        else:
-            result += char  # Non-alphabet characters are unchanged
-    
-    return result
+# Features
+Logs keystrokes in real-time.
+Saves recorded keystrokes to a text file.
 
-def main():
-    message = input("Enter the message: ")
-    shift = int(input("Enter the shift value: "))
-    
-    encrypted = encrypt(message, shift)
-    print(f"Encrypted message: {encrypted}")
-    
-    decrypted = decrypt(encrypted, shift)
-    print(f"Decrypted message: {decrypted}")
+# Explanation of the code:
+Key Press Logging:
 
-if __name__ == "__main__":
-    main()
+The on_press function is called every time a key is pressed. It checks if the key is a regular key (like letters or numbers) or a special key (like Shift, Space, Enter, etc.). The key is then logged into a file called keylog.txt.
+Handling Special Keys:
+
+The try block handles regular characters, while the except block handles special keys (e.g., Shift, Ctrl, Esc).
+Stopping the Keylogger:
+
+The on_release function stops the keylogger when the Esc key is pressed. This is done by returning False to the listener, which ends the program.
+Logging the Keystrokes:
+
+Keystrokes are logged in real-time to the keylog.txt file in the same directory where the script is run.
+
+# Ethical Considerations
+This tool is intended for educational purposes only. Use it responsibly and only with explicit permission. Unauthorized use of keyloggers can be illegal and unethical.
